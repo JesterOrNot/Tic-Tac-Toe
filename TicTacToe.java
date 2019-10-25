@@ -50,18 +50,9 @@ public class TicTacToe {
         return myBoard;
     }
 
-    public static String[][] makeMovePlayer1(int x, int y, String[][] theboard) {
+    public static String[][] makeMove(int x, int y, String[][] theboard, String playerIcon) {
         if (theboard[x][y] == null) {
-            theboard[x][y] = "X";
-        } else {
-            System.out.println("Spot taken!");
-        }
-        return theboard;
-    }
-
-    public static String[][] makeMovePlayer2(int x, int y, String[][] theboard) {
-        if (theboard[x][y] == null) {
-            theboard[x][y] = "0";
+            theboard[x][y] = playerIcon;
         } else {
             System.out.println("Spot taken!");
         }
@@ -110,11 +101,11 @@ public class TicTacToe {
         while (true) {
             int[] myArray = getMove();
             if (playerOneTurn == true) {
-                makeMovePlayer1(myArray[1], myArray[0], myBoard);
+                makeMove(myArray[1], myArray[0], myBoard,"X");
                 printBoard(myBoard);
                 playerOneTurn = false;
             } else {
-                makeMovePlayer2(myArray[1], myArray[0], myBoard);
+                makeMove(myArray[1], myArray[0], myBoard, "0");
                 printBoard(myBoard);
                 playerOneTurn = true;
             }
