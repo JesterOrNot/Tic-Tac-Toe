@@ -79,18 +79,15 @@ public class TicTacToe {
         for (int i = 0; i <= 2; i++) {
             for (int j = 0; j <= 2; j++) {
                 if (theBoard[i][j] == null) {
-                    int m = (int)(Math.random());
-                    if (m == 0) {
-                        theBoard[i][j] = playerIcon;
-                        try {
-                            System.out.println("Thinking.....");
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                        return theBoard;
+                    theBoard[i][j] = playerIcon;
+                    try {
+                        System.out.println("Thinking.....");
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
                     }
+                    return theBoard;
                 }
             }
         }
