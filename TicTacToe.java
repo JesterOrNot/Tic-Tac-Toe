@@ -1,3 +1,4 @@
+
 /**
  * @author Sean Hellum
  * **/
@@ -72,18 +73,19 @@ public class TicTacToe {
         int[] myArray = { item2, item1 };
         return myArray;
     }
+
     public static String[][] cpuRandom(String[][] theBoard, String playerIcon) {
-        for(int i = 0; i<=2; i++) {
-            for(int j = 0; j<=2; j++) {
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
                 if (theBoard[i][j] == null) {
                     theBoard[i][j] = playerIcon;
                     try {
                         System.out.println("Thinking.....");
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
                     return theBoard;
                 }
             }
@@ -122,7 +124,7 @@ public class TicTacToe {
         printBoard(myBoard);
         while (true) {
             if (playerOneTurn == true) {
-                makeMove(myBoard,"X");
+                makeMove(myBoard, "X");
                 printBoard(myBoard);
                 playerOneTurn = false;
             } else {
@@ -134,30 +136,30 @@ public class TicTacToe {
             int isOver = isGameOver(myBoard);
             if (isTrue) {
                 try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 System.out.println("\n\nIt's A Tie!\n\n");
                 break;
             }
             if (isOver == 1) {
                 try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 System.out.println("\n\nPlayer 2 Wins!\n\n");
                 break;
             } else if (isOver == 0) {
                 try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 System.out.println("\n\nPlayer 1 Wins\n\n");
                 break;
             }
