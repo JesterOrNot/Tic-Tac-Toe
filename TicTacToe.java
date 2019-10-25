@@ -65,7 +65,7 @@ public class TicTacToe {
         return theboard;
     }
 
-    public static int[] getMove() {
+    private static int[] getMove() {
         Scanner input = new Scanner(System.in);
         System.out.print("What is the first item?: ");
         int item1 = input.nextInt();
@@ -84,7 +84,6 @@ public class TicTacToe {
                         System.out.println("Thinking.....");
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                     return theBoard;
@@ -139,7 +138,6 @@ public class TicTacToe {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 System.out.println("\n\nIt's A Tie!\n\n");
@@ -149,7 +147,6 @@ public class TicTacToe {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 System.out.println("\n\nPlayer 2 Wins!\n\n");
@@ -158,7 +155,6 @@ public class TicTacToe {
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 System.out.println("\n\nPlayer 1 Wins\n\n");
