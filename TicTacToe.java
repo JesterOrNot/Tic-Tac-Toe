@@ -5,6 +5,8 @@ import java.util.Scanner;
 import java.lang.Thread;
 
 public class TicTacToe {
+    private static Scanner input;
+
     public static void printBoard(String[][] myBoard) {
         System.out.println("---------");
         for (int i = 0; i <= 2; i++) { // Loop through rows
@@ -65,7 +67,6 @@ public class TicTacToe {
     }
 
     private static int[] getMove() {
-        Scanner input = new Scanner(System.in);
         System.out.print("What is the first item?: ");
         int item1 = input.nextInt();
         System.out.print("What is the second item?: ");
@@ -118,7 +119,7 @@ public class TicTacToe {
     }
 
     public static String[] getPlayerTypes() {
-        Scanner input = new Scanner(System.in);
+        input = new Scanner(System.in);
         System.out.print("Welcome to Tic-Tac-Toe!\nIs player one a cpu or a normal player(cpu/play)?: ");
         String choice1 = input.nextLine();
         System.out.print("Is player two a cpu or a normal(cpu/play)?: ");
@@ -134,17 +135,16 @@ public class TicTacToe {
     }
 
     public static String[] mainMenu() {
-        Scanner scanner = new Scanner(System.in);
         String[] playerTypes = getPlayerTypes();
         String[] levels = { playerTypes[0], playerTypes[1], null, null };
         if (playerTypes[0].equals("cpu")) {
             System.out.print("What level is the player1 cpu(0)?: ");
-            String level1 = scanner.nextLine();
+            String level1 = input.nextLine();
             levels[2] = level1;
         }
         if (playerTypes[1].equals("cpu")) {
             System.out.print("What level is the player2 cpu(0)?: ");
-            String level2 = scanner.nextLine();
+            String level2 = input.nextLine();
             levels[3] = level2;
         }
         return levels;
@@ -181,7 +181,7 @@ public class TicTacToe {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("\n\nIt's A Tie!\n\n");
+                System.out.println("\nIt's A Tie!");
                 break;
             }
             if (isOver == 1) {
@@ -190,7 +190,7 @@ public class TicTacToe {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("\n\nPlayer 2 Wins!\n\n");
+                System.out.println("\nPlayer 2 Wins!");
                 break;
             } else if (isOver == 0) {
                 try {
@@ -198,7 +198,7 @@ public class TicTacToe {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("\n\nPlayer 1 Wins\n\n");
+                System.out.println("\nPlayer 1 Wins");
                 break;
             }
         }
