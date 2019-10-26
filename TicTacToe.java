@@ -120,7 +120,7 @@ public class TicTacToe {
         Scanner input = new Scanner(System.in);
         System.out.print("Welcome to Tic-Tac-Toe!\nIs player one a cpu or a normal player(cpu/play)?: ");
         String choice1 = input.nextLine();
-        System.out.print("Is player two a cpu or a normal(cpu/play)");
+        System.out.print("Is player two a cpu or a normal(cpu/play)?: ");
         String choice2 = input.nextLine();
         if(((choice1.equals("play") || choice1.equals("cpu")) && (choice2.equals("play") || choice2.equals("cpu")))) {
             String[] output = {choice1, choice2};
