@@ -152,7 +152,7 @@ public class TicTacToe {
     }
 
     public static void againOrNo() {
-        System.out.println("Do you want to play again(y/n)?: ");
+        System.out.print("Do you want to play again(y/n)?: ");
         String prompt = input.nextLine();
         if (prompt.equals("y")) {
             String[] args = { "" };
@@ -163,57 +163,60 @@ public class TicTacToe {
     }
 
     public static void main(String[] args) {
-        String[] data = mainMenu();
-        String[][] myBoard = newBoard();
-        boolean playerOneTurn = true;
-        printBoard(myBoard);
-        while (true) {
-            if (playerOneTurn == true) {
-                if (data[0].equals("cpu") && data[2].equals("0")) {
-                    lazyCpu(myBoard, "X");
+        try {
+            String[] data = mainMenu();
+            String[][] myBoard = newBoard();
+            boolean playerOneTurn = true;
+            printBoard(myBoard);
+            while (true) {
+                if (playerOneTurn == true) {
+                    if (data[0].equals("cpu") && data[2].equals("0")) {
+                        lazyCpu(myBoard, "X");
+                    } else {
+                        makeMove(myBoard, "X");
+                    }
+                    printBoard(myBoard);
+                    playerOneTurn = false;
                 } else {
-                    makeMove(myBoard, "X");
+                    if (data[1].equals("cpu") && data[3].equals("0")) {
+                        lazyCpu(myBoard, "0");
+                    } else {
+                        makeMove(myBoard, "0");
+                    }
+                    printBoard(myBoard);
+                    playerOneTurn = true;
                 }
-                printBoard(myBoard);
-                playerOneTurn = false;
-            } else {
-                if (data[1].equals("cpu") && data[3].equals("0")) {
-                    lazyCpu(myBoard, "0");
-                } else {
-                    makeMove(myBoard, "0");
+                boolean isTrue = isFull(myBoard);
+                int isOver = isGameOver(myBoard);
+                if (isTrue) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("\nIt's A Tie!");
+                    break;
                 }
-                printBoard(myBoard);
-                playerOneTurn = true;
+                if (isOver == 1) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("\nPlayer 2 Wins!");
+                    break;
+                } else if (isOver == 0) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("\nPlayer 1 Wins");
+                    break;
+                }
             }
-            boolean isTrue = isFull(myBoard);
-            int isOver = isGameOver(myBoard);
-            if (isTrue) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("\nIt's A Tie!");
-                break;
-            }
-            if (isOver == 1) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("\nPlayer 2 Wins!");
-                break;
-            } else if (isOver == 0) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("\nPlayer 1 Wins");
-                break;
-            }
+        } finally {
+            againOrNo();
         }
-        againOrNo();
     }
 }
