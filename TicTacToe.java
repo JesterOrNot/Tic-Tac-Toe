@@ -93,7 +93,38 @@ public class TicTacToe {
         }
         return theBoard;
     }
-
+    public static String[][] randomCpu(String[][] theBoard,String icon) {
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                float randomNum = (int)(Math.random()*5);
+                if (randomNum % 2 == 0 && theBoard[i][j] == null) {
+                    theBoard[i][j] = icon;
+                    try {
+                        System.out.println("Thinking.....");
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return theBoard;
+                }
+            }
+        }
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                if (theBoard[i][j] == null) {
+                    theBoard[i][j] = icon;
+                    try {
+                        System.out.println("Thinking.....");
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return theBoard;
+                }
+            }
+        }
+        return theBoard;
+    }
     public static int isGameOver(String[][] theboard) { // Exit code 0 means player1 wins 1 is for player2 and 2 is game
                                                         // not over
         if ((theboard[0][0] == "X" && theboard[0][1] == "X" && theboard[0][2] == "X")
@@ -140,12 +171,12 @@ public class TicTacToe {
         String[] playerTypes = getPlayerTypes();
         String[] levels = { playerTypes[0], playerTypes[1], null, null };
         if (playerTypes[0].equals("cpu")) {
-            System.out.print("What level is the player1 cpu(0)?: ");
+            System.out.print("What level is the player1 cpu(0/1)?: ");
             String level1 = input.nextLine();
             levels[2] = level1;
         }
         if (playerTypes[1].equals("cpu")) {
-            System.out.print("What level is the player2 cpu(0)?: ");
+            System.out.print("What level is the player2 cpu(0/1)?: ");
             String level2 = input.nextLine();
             levels[3] = level2;
         }
@@ -173,6 +204,8 @@ public class TicTacToe {
                 if (playerOneTurn == true) {
                     if (data[0].equals("cpu") && data[2].equals("0")) {
                         lazyCpu(myBoard, "X");
+                    } else if (data[0].equals("cpu") && data[2].equals("1")) {
+                        randomCpu(myBoard, "X");
                     } else {
                         try {
                             makeMove(myBoard, "X");
@@ -186,6 +219,8 @@ public class TicTacToe {
                 } else {
                     if (data[1].equals("cpu") && data[3].equals("0")) {
                         lazyCpu(myBoard, "0");
+                    } else if (data[1].equals("cpu") && data[3].equals("1")) {
+                        randomCpu(myBoard, "0");
                     } else {
                         try {
                             makeMove(myBoard, "0");
