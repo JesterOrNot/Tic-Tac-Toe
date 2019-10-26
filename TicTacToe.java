@@ -1,4 +1,3 @@
-
 /**
  * @author Sean Hellum
  * **/
@@ -93,10 +92,11 @@ public class TicTacToe {
         }
         return theBoard;
     }
-    public static String[][] randomCpu(String[][] theBoard,String icon) {
+
+    public static String[][] randomCpu(String[][] theBoard, String icon) {
         for (int i = 0; i <= 2; i++) {
             for (int j = 0; j <= 2; j++) {
-                float randomNum = (int)(Math.random()*5);
+                float randomNum = (int) (Math.random() * 5);
                 if (randomNum % 2 == 0 && theBoard[i][j] == null) {
                     theBoard[i][j] = icon;
                     try {
@@ -125,6 +125,7 @@ public class TicTacToe {
         }
         return theBoard;
     }
+
     public static int isGameOver(String[][] theboard) { // Exit code 0 means player1 wins 1 is for player2 and 2 is game
                                                         // not over
         if ((theboard[0][0] == "X" && theboard[0][1] == "X" && theboard[0][2] == "X")
