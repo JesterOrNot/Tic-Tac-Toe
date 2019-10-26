@@ -71,7 +71,7 @@ public class TicTacToe {
         int item1 = input.nextInt();
         System.out.print("What is the second item?: ");
         int item2 = input.nextInt();
-        int[] myArray = { item2, item1 };
+        int[] myArray = { item2-1, item1-1 };
         return myArray;
     }
 
