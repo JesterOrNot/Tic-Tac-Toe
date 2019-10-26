@@ -116,14 +116,15 @@ public class TicTacToe {
             return 2;
         }
     }
+
     public static String[] getPlayerTypes() {
         Scanner input = new Scanner(System.in);
         System.out.print("Welcome to Tic-Tac-Toe!\nIs player one a cpu or a normal player(cpu/play)?: ");
         String choice1 = input.nextLine();
         System.out.print("Is player two a cpu or a normal(cpu/play)?: ");
         String choice2 = input.nextLine();
-        if(((choice1.equals("play") || choice1.equals("cpu")) && (choice2.equals("play") || choice2.equals("cpu")))) {
-            String[] output = {choice1, choice2};
+        if (((choice1.equals("play") || choice1.equals("cpu")) && (choice2.equals("play") || choice2.equals("cpu")))) {
+            String[] output = { choice1, choice2 };
             return output;
         } else {
             getPlayerTypes();
@@ -131,22 +132,24 @@ public class TicTacToe {
         String[] pointless = {};
         return pointless;
     }
+
     public static String[] mainMenu() {
         Scanner scanner = new Scanner(System.in);
         String[] playerTypes = getPlayerTypes();
-        String[] levels = {playerTypes[0],playerTypes[1],null,null};
-        if(playerTypes[0].equals("cpu")) {
+        String[] levels = { playerTypes[0], playerTypes[1], null, null };
+        if (playerTypes[0].equals("cpu")) {
             System.out.print("What level is the player1 cpu(0)?: ");
             String level1 = scanner.nextLine();
             levels[2] = level1;
         }
-        if(playerTypes[1].equals("cpu")) {
+        if (playerTypes[1].equals("cpu")) {
             System.out.print("What level is the player2 cpu(0)?: ");
             String level2 = scanner.nextLine();
             levels[3] = level2;
         }
         return levels;
     }
+
     public static void main(String[] args) {
         String[] data = mainMenu();
         String[][] myBoard = newBoard();
@@ -154,7 +157,7 @@ public class TicTacToe {
         printBoard(myBoard);
         while (true) {
             if (playerOneTurn == true) {
-                if(data[0].equals("cpu") && data[2].equals("0")) {
+                if (data[0].equals("cpu") && data[2].equals("0")) {
                     lazyCpu(myBoard, "X");
                 } else {
                     makeMove(myBoard, "X");
@@ -162,7 +165,7 @@ public class TicTacToe {
                 printBoard(myBoard);
                 playerOneTurn = false;
             } else {
-                if(data[1].equals("cpu") && data[3].equals("0")) {
+                if (data[1].equals("cpu") && data[3].equals("0")) {
                     lazyCpu(myBoard, "0");
                 } else {
                     makeMove(myBoard, "0");
