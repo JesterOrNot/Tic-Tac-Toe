@@ -129,7 +129,7 @@ public class TicTacToe {
         } else {
             getPlayerTypes();
         }
-        String[] pointless = {};
+        String[] pointless = {}; // Why is this line of code here? --- I don't know but it doesn't work without it
         return pointless;
     }
 
