@@ -74,7 +74,7 @@ public class TicTacToe {
         return myArray;
     }
 
-    public static String[][] cpuRandom(String[][] theBoard, String playerIcon) {
+    public static String[][] lazyCpu(String[][] theBoard, String playerIcon) {
         for (int i = 0; i <= 2; i++) {
             for (int j = 0; j <= 2; j++) {
                 if (theBoard[i][j] == null) {
@@ -155,7 +155,7 @@ public class TicTacToe {
         while (true) {
             if (playerOneTurn == true) {
                 if(data[0].equals("cpu") && data[2].equals("0")) {
-                    cpuRandom(myBoard, "X");
+                    lazyCpu(myBoard, "X");
                 } else {
                     makeMove(myBoard, "X");
                 }
@@ -163,7 +163,7 @@ public class TicTacToe {
                 playerOneTurn = false;
             } else {
                 if(data[1].equals("cpu") && data[3].equals("0")) {
-                    cpuRandom(myBoard, "0");
+                    lazyCpu(myBoard, "0");
                 } else {
                     makeMove(myBoard, "0");
                 }
