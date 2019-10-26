@@ -1,3 +1,4 @@
+
 /**
  * @author Sean Hellum
  * **/
@@ -173,7 +174,12 @@ public class TicTacToe {
                     if (data[0].equals("cpu") && data[2].equals("0")) {
                         lazyCpu(myBoard, "X");
                     } else {
-                        makeMove(myBoard, "X");
+                        try {
+                            makeMove(myBoard, "X");
+                        } catch (ArrayIndexOutOfBoundsException e) {
+                            System.out.println("The board isn't that big!");
+                            makeMove(myBoard, "X");
+                        }
                     }
                     printBoard(myBoard);
                     playerOneTurn = false;
@@ -181,7 +187,12 @@ public class TicTacToe {
                     if (data[1].equals("cpu") && data[3].equals("0")) {
                         lazyCpu(myBoard, "0");
                     } else {
-                        makeMove(myBoard, "0");
+                        try {
+                            makeMove(myBoard, "0");
+                        } catch (ArrayIndexOutOfBoundsException e) {
+                            System.out.println("The board isn't that big!");
+                            makeMove(myBoard, "0");
+                        }
                     }
                     printBoard(myBoard);
                     playerOneTurn = true;
