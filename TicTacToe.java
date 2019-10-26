@@ -1,3 +1,4 @@
+
 /**
  * @author Sean Hellum
  * **/
@@ -71,7 +72,7 @@ public class TicTacToe {
         int item1 = input.nextInt();
         System.out.print("What is the second item?: ");
         int item2 = input.nextInt();
-        int[] myArray = { item2-1, item1-1 };
+        int[] myArray = { item2 - 1, item1 - 1 };
         return myArray;
     }
 
@@ -150,16 +151,18 @@ public class TicTacToe {
         }
         return levels;
     }
+
     public static void againOrNo() {
         System.out.println("Do you want to play again(y/n)?: ");
         String prompt = input.nextLine();
-        if(prompt.equals("y")) {
-            String[] args = {""};
+        if (prompt.equals("y")) {
+            String[] args = { "" };
             main(args);
         } else {
             System.out.println("Ok, Bye!");
         }
     }
+
     public static void main(String[] args) {
         String[] data = mainMenu();
         String[][] myBoard = newBoard();
