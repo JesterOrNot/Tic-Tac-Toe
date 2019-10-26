@@ -150,7 +150,16 @@ public class TicTacToe {
         }
         return levels;
     }
-
+    public static void againOrNo() {
+        System.out.println("Do you want to play again(y/n)?: ");
+        String prompt = input.nextLine();
+        if(prompt.equals("y")) {
+            String[] args = {""};
+            main(args);
+        } else {
+            System.out.println("Ok, Bye!");
+        }
+    }
     public static void main(String[] args) {
         String[] data = mainMenu();
         String[][] myBoard = newBoard();
@@ -203,5 +212,6 @@ public class TicTacToe {
                 break;
             }
         }
+        againOrNo();
     }
 }
